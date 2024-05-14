@@ -56,6 +56,7 @@
     job: "{{ dehydrated_install_root }}/dehydrated -c"
     cron_file: dehydrated
     state: "{{ 'present' if dehydrated_cronjob else 'absent' }}"
+  ignore_errors: "{{ false if dehydrated_cronjob else true }}"
 
 - import_tasks: systemd.yml
 
